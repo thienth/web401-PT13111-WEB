@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/{name?}/{age?}', function ($name = '', $age = 1) {
+// 	$desc = "<i>Day la noi dung cua 1 the html</i>";
+//     return view('homepage', [	'x' => $name, 
+//     							'y' => $age,
+// 								'desc' => $desc
+// 							]);
+// });
+
+Route::view('/', 'demo');
