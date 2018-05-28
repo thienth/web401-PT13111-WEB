@@ -22,7 +22,7 @@ class PostsTableSeeder extends Seeder
 	 //    $table->integer('created_by')->default(-1);
         $faker = Faker\Factory::create();
         $posts = [];
-        for ($i=0; $i < 2000; $i++) { 
+        for ($i=0; $i < 200; $i++) { 
         	$name = $faker->name;
         	$item = [
         		'title' => $name,
