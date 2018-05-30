@@ -19,4 +19,27 @@
 // 							]);
 // });
 
-Route::view('/', 'demo');
+Route::get('/', function(){
+	$cates = App\Category::all();
+	$posts = App\Post::all();
+	return view('demo', [	'posts' => $posts, 
+							'categories' => $cates
+						]);
+});
+
+Route::get('/{slug}', function($slug){
+	$post = App\Post::where('slug', $slug)->first();
+	return view('detail', ['post' => $post]);
+})->name('detail.post');
+
+
+
+
+
+
+
+
+
+
+
+
