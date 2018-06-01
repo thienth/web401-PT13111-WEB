@@ -26,6 +26,11 @@ Route::get('/', function(){
 							'categories' => $cates
 						]);
 });
+use Illuminate\Http\Request;
+Route::get('search', function(Request $request){
+	return $request->keyword;
+})->name('search');
+
 
 Route::get('/{slug}', function($slug){
 	$post = App\Post::where('slug', $slug)->first();

@@ -11,6 +11,10 @@
 			@foreach ($categories as $c)
 		  		<a class="nav-link active" href="#">{{$c->name}}</a>
 			@endforeach
+			<form action="{{ route('search') }}">
+				<input type="text" name="keyword">
+				<button type="submit">Search</button>
+			</form>
 		</nav>
 		<div class="main-content">
 			<div class="row">
