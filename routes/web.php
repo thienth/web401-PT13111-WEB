@@ -11,25 +11,10 @@
 |
 */
 
-// Route::get('/{name?}/{age?}', function ($name = '', $age = 1) {
-// 	$desc = "<i>Day la noi dung cua 1 the html</i>";
-//     return view('homepage', [	'x' => $name, 
-//     							'y' => $age,
-// 								'desc' => $desc
-// 							]);
-// });
 
-Route::get('/', function(){
-	$cates = App\Category::all();
-	$posts = App\Post::all();
-	return view('demo', [	'posts' => $posts, 
-							'categories' => $cates
-						]);
-});
-use Illuminate\Http\Request;
-Route::get('search', function(Request $request){
-	return $request->keyword;
-})->name('search');
+Route::get('/', 'HomeController@index');
+
+Route::get('search', 'HomeController@search')->name('search');
 
 
 Route::get('/{slug}', function($slug){
