@@ -13,6 +13,16 @@ class HomeController extends Controller
 		return view('demo', [	'posts' => $posts, 
 							]);
     }
+    public function cateList($slug){
+		$cate = Category::where('slug', $slug)->first();
+		if(!$cate){
+			return "Khong tim thay duong dan";
+		}
+
+		$posts = Post::where('cate_id', $cate->id)->paginate(9);
+		return view('demo', [	'posts' => $posts, 
+							]);
+    }
 
     public function search(Request $request){
     	$posts = Post::where('title', 'like', "%$request->keyword%")

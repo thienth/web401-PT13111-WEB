@@ -9,12 +9,13 @@
 	<div class="container">
 		<nav class="nav">
 			@foreach ($categories as $c)
-		  		<a class="nav-link active" href="#">{{$c->name}}</a>
+		  		<a class="nav-link active" href="{{ route('cate.list', ['slug' => $c->slug]) }}">{{$c->name}}</a>
 			@endforeach
 			<form action="{{ route('search') }}">
 				<input type="text" name="keyword">
-				<button type="submit">Search</button>
+				<button class="btn btn-primary btn-sm" type="submit">Search</button>
 			</form>
+			<a href="{{ route('post.add') }}" class="btn btn-success">Thêm mới bài viết</a>
 		</nav>
 
 		@yield('content')

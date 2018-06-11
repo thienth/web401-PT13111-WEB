@@ -12,11 +12,16 @@
 */
 
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('homepage');
 
 Route::get('search', 'HomeController@search')->name('search');
 
+Route::get('admin/post/add', 'AdminController@add')->name('post.add');
+Route::post('admin/post/add', 'AdminController@save');
 
+
+
+Route::get('danh-muc/{slug}', 'HomeController@cateList')->name('cate.list');
 Route::get('/{slug}', function($slug){
 	$post = App\Post::where('slug', $slug)->first();
 	return view('detail', ['post' => $post]);
