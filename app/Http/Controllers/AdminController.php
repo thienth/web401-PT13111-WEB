@@ -9,7 +9,18 @@ class AdminController extends Controller
 {
     public function add(){
 
-    	$model = new Post();
+        $model = new Post();
+        $cates = Category::all();
+
+        return view('admin.post.form', 
+                    [   
+                        'model' => $model,
+                        'cates' => $cates
+                    ]);
+    }
+    public function edit($id){
+
+    	$model = Post::find($id);
     	$cates = Category::all();
 
     	return view('admin.post.form', 

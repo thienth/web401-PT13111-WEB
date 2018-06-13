@@ -2,7 +2,7 @@
 @section('title', 'Thêm bài viết')
 @section('content')
 	<div class="col-md-6 offset-md-3">
-		<form method="post" enctype="multipart/form-data">
+		<form action="{{ route('post.save') }}" method="post" enctype="multipart/form-data">
 			@csrf
 			<input type="hidden" name="id" value="{{$model->id}}">
 

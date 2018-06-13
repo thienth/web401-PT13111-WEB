@@ -17,7 +17,8 @@ Route::get('/', 'HomeController@index')->name('homepage');
 Route::get('search', 'HomeController@search')->name('search');
 
 Route::get('admin/post/add', 'AdminController@add')->name('post.add');
-Route::post('admin/post/add', 'AdminController@save');
+Route::get('admin/post/edit/{id}', 'AdminController@edit')->name('post.edit');
+Route::post('admin/post/save', 'AdminController@save')->name('post.save');
 
 
 
