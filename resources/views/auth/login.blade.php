@@ -20,10 +20,16 @@
 				<div class="form-group">
 					<label>Email</label>
 					<input class="form-control" type="text" name="email" placeholder="Enter Email" />
+					@if($errors)
+					<span class="text-danger">{{$errors->first('email')}}</span>
+					@endif
 				</div>
 				<div class="form-group">
 					<label>Password</label>
 					<input class="form-control" type="password" name="password" placeholder="Enter Password" />
+					@if($errors)
+					<span class="text-danger">{{$errors->first('password')}}</span>
+					@endif
 				</div>
 				<div class="text-center">
 					<button type="submit" class="btn btn-sm btn-primary">Login</button>

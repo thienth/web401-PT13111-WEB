@@ -53,6 +53,19 @@ class LoginController extends Controller
 
     public function postLogin(Request $rq){
 
+        $rq->validate(
+            [
+                'email' => 'required|email',
+                'password' => 'required|min:4'
+            ],
+            [
+                'email.required' => 'Vui lòng nhập email',
+                'email.email' => 'Email không đúng định dạng',
+                'password.required' => 'Vui lòng nhập mật khẩu',
+                'password.min' => 'Độ dài tối thiểu của mật khẩu là 4 ký tự'
+            ]
+        );
+
         if(Auth::attempt(['email' => $rq->email, 'password' => $rq->password])){
             return redirect(route('homepage'));
         }else{
