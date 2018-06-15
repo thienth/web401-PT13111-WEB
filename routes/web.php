@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('login', 'Auth\LoginController@login')->name('login');
+Route::post('login', 'Auth\LoginController@postLogin');
+Route::any('logout', 'Auth\LoginController@logout')->name('logout');
+
 
 Route::get('/', 'HomeController@index')->name('homepage');
 
